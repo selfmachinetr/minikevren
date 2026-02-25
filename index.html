@@ -3,187 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minik Evren | Bebek Gelişim ve Ebeveynlik Portalı</title>
+    <title>Minik Evren Premium | Her Adımda Yanınızda</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Quicksand', sans-serif; scroll-behavior: smooth; }
-        .baby-gradient { background: linear-gradient(135deg, #fef2f2 0%, #f0f9ff 100%); }
-        .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; scroll-behavior: smooth; }
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); }
+        .tooth { transition: all 0.3s ease; cursor: pointer; }
+        .tooth:hover { fill: #f87171 !important; transform: scale(1.1); }
+        .white-noise-btn.active { background-color: #4f46e5; color: white; transform: scale(1.05); }
+        .timeline-item::before { content: ''; position: absolute; left: -2px; top: 0; height: 100%; width: 4px; background: #e2e8f0; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-3xl font-bold text-indigo-600">✨ Minik Evren</div>
-            <div class="hidden lg:flex space-x-6 font-semibold">
-                <a href="#gelisim" class="hover:text-indigo-500">Gelişim</a>
-                <a href="#hesaplayici" class="hover:text-indigo-500">Hesaplayıcılar</a>
-                <a href="#asi" class="hover:text-indigo-500">Aşı Takvimi</a>
-                <a href="#isimler" class="hover:text-indigo-500">İsim Rehberi</a>
+    <nav class="sticky top-0 z-[100] glass-card px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-3xl font-black text-indigo-600 tracking-tight">✨ Minik Evren <span class="text-xs font-bold bg-indigo-100 px-2 py-1 rounded text-indigo-500 ml-2 uppercase">Premium</span></div>
+            <div class="hidden lg:flex space-x-8 font-bold text-slate-600">
+                <a href="#gelisim" class="hover:text-indigo-600">Gelişim</a>
+                <a href="#white-noise" class="hover:text-indigo-600">Beyaz Gürültü</a>
+                <a href="#dis-takvimi" class="hover:text-indigo-600">Diş Takvimi</a>
+                <a href="#ek-gida" class="hover:text-indigo-600">Ek Gıda</a>
+                <a href="#album" class="hover:text-indigo-600 text-indigo-600">Anı Albümü</a>
             </div>
-            <button class="bg-indigo-600 text-white px-5 py-2 rounded-full font-bold hover:bg-indigo-700 transition shadow-md">Ücretsiz Üye Ol</button>
+            <div class="flex items-center space-x-4">
+                <div id="date-display" class="text-xs font-bold text-slate-400">25 ŞUBAT 2026</div>
+                <button class="bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold shadow-xl hover:bg-slate-800 transition">Profilim</button>
+            </div>
         </div>
     </nav>
 
-    <section class="baby-gradient py-20 px-6">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <h1 class="text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight">
-                    Bebeğinizin Dünyasına <br><span class="text-indigo-600">Hoş Geldiniz.</span>
-                </h1>
-                <p class="text-xl text-gray-600 mt-6 max-w-lg">
-                    Ay ay gelişim takibi, aşı hatırlatıcıları ve binlerce bebek ismi seçeneğiyle Minik Evren yanınızda.
+    <section id="gelisim" class="max-w-7xl mx-auto px-6 py-12">
+        <div class="bg-indigo-600 rounded-[3rem] p-10 text-white flex flex-col md:flex-row items-center gap-10 relative overflow-hidden">
+            <div class="z-10 relative">
+                <span class="bg-indigo-400/30 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">7. Ay Gelişimi</span>
+                <h2 class="text-4xl font-extrabold mt-4">Bu Hafta Sizi Neler Bekliyor?</h2>
+                <p class="mt-6 text-indigo-100 text-lg leading-relaxed max-w-xl">
+                    Bebeğiniz bu hafta artık destek almadan kısa süreler oturabilir! Elindeki nesneleri bir elinden diğerine geçirmeyi deniyor. Dikkat: Odadaki küçük nesnelere artık daha kolay ulaşıyor.
                 </p>
-                <div class="mt-10 flex flex-wrap gap-4">
-                    <button class="bg-orange-500 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:bg-orange-600">Hemen Başla</button>
-                    <button class="bg-white border-2 border-indigo-100 px-8 py-4 rounded-2xl font-bold text-lg hover:border-indigo-200">Video Eğitimler</button>
-                </div>
+                <button class="mt-8 bg-white text-indigo-600 px-8 py-3 rounded-2xl font-black hover:bg-slate-100">Gelişim Detayını Oku</button>
             </div>
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80" alt="Bebek Gelişimi" class="rounded-[3rem] shadow-2xl">
+            <div class="w-full md:w-1/3 glass-card rounded-3xl p-6 text-slate-800">
+                <h4 class="font-bold border-b pb-2 mb-4">Beslenme Notu</h4>
+                <p class="text-sm italic opacity-80">"Bugün kabağı buharda pişirerek püre yerine çatalla ezmeyi deneyin. Pütürlü gıdaya geçiş için harika bir zaman!"</p>
             </div>
         </div>
     </section>
 
-    <section id="hesaplayici" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold text-gray-900">Akıllı Gelişim Araçları</h2>
-            <p class="text-gray-500 mt-4 text-lg">Bebeğinizin sağlığını ve rutini bilimsel verilerle takip edin.</p>
+    <section id="white-noise" class="max-w-7xl mx-auto px-6 py-12">
+        <div class="bg-white rounded-[3rem] p-12 shadow-sm border border-slate-100">
+            <div class="mb-10 flex justify-between items-end">
+                <div>
+                    <h2 class="text-3xl font-black text-slate-900">Uyku Asistanı</h2>
+                    <p class="text-slate-500 font-medium">Bebekleri sakinleştiren sihirli sesler.</p>
+                </div>
+                <div class="animate-pulse text-indigo-600 font-bold">● Şu an çalıyor: <span id="current-sound">Kapalı</span></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <button onclick="playNoise('Fön Makinesi')" class="white-noise-btn p-8 rounded-3xl border-2 border-slate-50 flex flex-col items-center hover:shadow-xl transition-all">
+                    <span class="text-4xl mb-4">💨</span>
+                    <span class="font-bold">Fön Makinesi</span>
+                </button>
+                <button onclick="playNoise('Yağmur Sesi')" class="white-noise-btn p-8 rounded-3xl border-2 border-slate-50 flex flex-col items-center hover:shadow-xl transition-all">
+                    <span class="text-4xl mb-4">🌧️</span>
+                    <span class="font-bold">Yağmur Sesi</span>
+                </button>
+                <button onclick="playNoise('Süpürge')" class="white-noise-btn p-8 rounded-3xl border-2 border-slate-50 flex flex-col items-center hover:shadow-xl transition-all">
+                    <span class="text-4xl mb-4">🧹</span>
+                    <span class="font-bold">Elektrikli Süpürge</span>
+                </div>
+                <button onclick="playNoise('Anne Karnı')" class="white-noise-btn p-8 rounded-3xl border-2 border-slate-50 flex flex-col items-center hover:shadow-xl transition-all">
+                    <span class="text-4xl mb-4">💓</span>
+                    <span class="font-bold">Anne Karnı</span>
+                </button>
+            </div>
+            <div class="mt-8">
+                <input type="range" class="w-full accent-indigo-600" min="0" max="100" value="50">
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-2 gap-12">
+        
+        <div id="dis-takvimi" class="bg-white rounded-[3rem] p-10 shadow-sm border border-slate-100 text-center">
+            <h2 class="text-2xl font-black mb-6">İnteraktif Diş Haritası</h2>
+            <p class="mb-8 text-slate-500 text-sm">Çıkan dişin üzerine tıklayarak not alın.</p>
+            <div class="flex justify-center mb-10">
+                <svg width="240" height="240" viewBox="0 0 200 200">
+                    <path d="M70,40 Q100,20 130,40" fill="none" stroke="#e2e8f0" stroke-width="8"/>
+                    <circle class="tooth" cx="100" cy="30" r="10" fill="#e2e8f0" onclick="toothInfo('Üst Ön Kesici', '6-10. Ay')"/>
+                    <circle class="tooth" cx="80" cy="35" r="10" fill="#e2e8f0" onclick="toothInfo('Üst Yan Kesici', '9-13. Ay')"/>
+                    <circle class="tooth" cx="120" cy="35" r="10" fill="#e2e8f0" onclick="toothInfo('Üst Yan Kesici', '9-13. Ay')"/>
+                    <path d="M70,160 Q100,180 130,160" fill="none" stroke="#e2e8f0" stroke-width="8"/>
+                    <circle class="tooth" cx="100" cy="175" r="10" fill="#e2e8f0" onclick="toothInfo('Alt Ön Kesici', '6-10. Ay')"/>
+                </svg>
+            </div>
+            <div id="tooth-detail" class="bg-red-50 p-4 rounded-2xl border border-red-100 text-red-600 font-bold hidden"></div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-gray-100">
-                <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">📊 Persentil Hesapla</h3>
-                <div class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <input type="number" id="p_age" placeholder="Kaç Aylık?" class="p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-indigo-400">
-                        <input type="number" id="p_weight" placeholder="Kilosu (kg)" class="p-4 bg-gray-50 rounded-xl outline-none focus:ring-2 focus:ring-indigo-400">
-                    </div>
-                    <button onclick="calcP()" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold hover:bg-indigo-700 transition">Analiz Et</button>
-                    <div id="p_res" class="hidden mt-4 p-4 rounded-xl text-center font-bold"></div>
-                </div>
+        <div id="ek-gida" class="bg-white rounded-[3rem] p-10 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-black mb-6">Ek Gıda Geçiş Rehberi</h2>
+            <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+                <button onclick="filterFood('6')" class="bg-slate-100 px-4 py-2 rounded-full font-bold text-xs whitespace-nowrap active:bg-indigo-600 active:text-white">6+ AY</button>
+                <button onclick="filterFood('8')" class="bg-slate-100 px-4 py-2 rounded-full font-bold text-xs whitespace-nowrap">8+ AY</button>
+                <button onclick="filterFood('12')" class="bg-slate-100 px-4 py-2 rounded-full font-bold text-xs whitespace-nowrap">12+ AY</button>
             </div>
-
-            <div class="bg-indigo-900 text-white p-8 rounded-[2.5rem] shadow-xl">
-                <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">🌙 İdeal Uyku Saati</h3>
-                <p class="mb-6 opacity-80 text-sm">Bebeğinizin uyanma saatine göre bir sonraki uyku vaktini planlayın.</p>
-                <div class="space-y-4">
-                    <input type="time" id="sleep_time" class="w-full p-4 bg-indigo-800 rounded-xl outline-none border-none text-white">
-                    <button onclick="calcSleep()" class="w-full bg-orange-500 text-white py-4 rounded-xl font-bold hover:bg-orange-600">Uyku Aralığını Gör</button>
-                    <div id="sleep_res" class="hidden mt-4 text-center text-orange-300 font-bold"></div>
+            <div id="food-list" class="space-y-3">
+                <div class="flex items-center justify-between p-4 bg-green-50 rounded-2xl">
+                    <span class="font-bold text-green-700">🥑 Avokado</span>
+                    <span class="text-xs bg-green-200 text-green-800 px-2 py-1 rounded">Düşük Alerji</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-orange-50 rounded-2xl">
+                    <span class="font-bold text-orange-700">🥕 Havuç</span>
+                    <span class="text-xs bg-orange-200 text-orange-800 px-2 py-1 rounded">Güvenli</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-red-50 rounded-2xl">
+                    <span class="font-bold text-red-700">🥜 Yer Fıstığı</span>
+                    <span class="text-xs bg-red-200 text-red-800 px-2 py-1 rounded font-black uppercase">Yüksek Risk!</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="asi" class="py-24 bg-blue-50 px-6">
+    <section id="album" class="max-w-4xl mx-auto px-6 py-12">
+        <h2 class="text-3xl font-black text-center mb-12">Minik Anlar Albümü</h2>
+        <div class="relative ml-4">
+            <div class="timeline-item relative pl-10 mb-12">
+                <div class="absolute left-[-10px] top-0 w-5 h-5 bg-indigo-600 rounded-full border-4 border-white"></div>
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                    <span class="text-xs font-bold text-slate-400">12 ŞUBAT 2026</span>
+                    <h4 class="text-xl font-black text-indigo-600 mt-2">İlk Kahkahası! 😂</h4>
+                    <p class="text-slate-500 mt-2">Babasının taklidini yaparken bir anda kahkahayı patlattı. Hepimiz şok olduk!</p>
+                    <img src="https://images.unsplash.com/photo-1544126592-807daa2b565b?auto=format&fit=crop&w=600&q=80" class="mt-4 rounded-2xl w-full h-48 object-cover">
+                </div>
+            </div>
+            <div class="bg-slate-200 border-2 border-dashed border-slate-300 p-8 rounded-[2rem] text-center cursor-pointer hover:border-indigo-400 group transition">
+                <span class="text-4xl block group-hover:scale-110 transition">📸</span>
+                <span class="font-bold text-slate-500 group-hover:text-indigo-600">Yeni Bir Anı Yükle</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-20 px-6 text-center">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 italic">🗓️ Aşı Takvimi Rehberi</h2>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-3xl border-b-8 border-indigo-500">
-                    <span class="text-indigo-600 font-black text-xl">Doğum</span>
-                    <h4 class="font-bold mt-2">Hepatit B</h4>
-                    <p class="text-sm text-gray-500 mt-2 italic">İlk doz hastaneden çıkmadan yapılır.</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl border-b-8 border-green-500">
-                    <span class="text-green-600 font-black text-xl">2. Ay</span>
-                    <h4 class="font-bold mt-2">Karma (BCG, DaBT)</h4>
-                    <p class="text-sm text-gray-500 mt-2 italic">Verem ve Karma aşı dozları başlar.</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl border-b-8 border-orange-500">
-                    <span class="text-orange-600 font-black text-xl">6. Ay</span>
-                    <h4 class="font-bold mt-2">Hepatit B + OPA</h4>
-                    <p class="text-sm text-gray-500 mt-2 italic">Bağışıklık sisteminin güçlendirilmesi.</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl border-b-8 border-red-500">
-                    <span class="text-red-600 font-black text-xl">12. Ay</span>
-                    <h4 class="font-bold mt-2">KKK (Kızamık)</h4>
-                    <p class="text-sm text-gray-500 mt-2 italic">Kızamık, kızamıkçık ve kabakulak.</p>
-                </div>
+            <div class="text-4xl font-black text-white mb-6 tracking-tighter italic">MINIK EVREN</div>
+            <p class="max-w-md mx-auto mb-10 text-slate-500">Bu platform ebeveynlik yolculuğunuzu dijital bir günlüğe ve asistanlığa dönüştürür.</p>
+            <div class="flex justify-center space-x-6 text-white font-bold">
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">Ebeveyn Forumu</a>
             </div>
-        </div>
-    </section>
-
-    <section id="isimler" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-col lg:flex-row items-center gap-12">
-            <div class="lg:w-1/3 text-center lg:text-left">
-                <h2 class="text-4xl font-bold mb-6">İsim Rehberi</h2>
-                <p class="text-gray-500">Anlamlı ve popüler isimler arasından bebeğinize en uygun olanı seçin.</p>
-                <button class="mt-8 text-indigo-600 font-bold border-b-2 border-indigo-600">Tüm Listeyi Gör</button>
-            </div>
-            <div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="p-6 bg-blue-100 rounded-2xl text-center card-hover cursor-pointer">
-                    <span class="block font-bold text-blue-800">Alp</span>
-                    <span class="text-xs opacity-60">Yiğit, kahraman</span>
-                </div>
-                <div class="p-6 bg-pink-100 rounded-2xl text-center card-hover cursor-pointer">
-                    <span class="block font-bold text-pink-800">Lina</span>
-                    <span class="text-xs opacity-60">Cennet bahçesi</span>
-                </div>
-                <div class="p-6 bg-blue-100 rounded-2xl text-center card-hover cursor-pointer">
-                    <span class="block font-bold text-blue-800">Aras</span>
-                    <span class="text-xs opacity-60">Bulunan mal</span>
-                </div>
-                <div class="p-6 bg-pink-100 rounded-2xl text-center card-hover cursor-pointer">
-                    <span class="block font-bold text-pink-800">Duru</span>
-                    <span class="text-xs opacity-60">Saf, berrak</span>
-                </div>
-                <div class="p-6 bg-blue-100 rounded-2xl text-center card-hover cursor-pointer">
-                    <span class="block font-bold text-blue-800">Mete</span>
-                    <span class="text-xs opacity-60">Büyük Hun Hakanı</span>
-                </div>
-                <div class="p-6 bg-pink-100 rounded-2xl text-center card-hover cursor-pointer">
-                    <span class="block font-bold text-pink-800">Masal</span>
-                    <span class="text-xs opacity-60">Olağanüstü olay</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-white border-t py-12 px-6">
-        <div class="max-w-7xl mx-auto text-center">
-            <div class="text-2xl font-bold text-indigo-600 mb-4 italic">Minik Evren</div>
-            <p class="text-gray-400 text-sm italic">Ebeveynlerin güvenilir dijital pusulası.</p>
-            <div class="mt-8 flex justify-center space-x-6">
-                <a href="#" class="text-gray-400 hover:text-indigo-600">Hakkımızda</a>
-                <a href="#" class="text-gray-400 hover:text-indigo-600">İletişim</a>
-                <a href="#" class="text-gray-400 hover:text-indigo-600">Reklam</a>
-            </div>
+            <div class="mt-12 text-xs opacity-30 uppercase tracking-widest">© 2026 Minik Evren Labs. Tüm hakları saklıdır.</div>
         </div>
     </footer>
 
     <script>
-        // Persentil Logic
-        function calcP() {
-            const age = document.getElementById('p_age').value;
-            const weight = document.getElementById('p_weight').value;
-            const res = document.getElementById('p_res');
-            
-            if(!age || !weight) return alert("Bilgileri giriniz");
-
-            const avg = (age * 0.5) + 3.5; // Basit ortalama
-            res.classList.remove('hidden');
-            
-            if(weight < avg * 0.8) {
-                res.innerText = "Gelişim Desteği Gerekli";
-                res.className = "mt-4 p-4 rounded-xl text-center font-bold bg-red-100 text-red-600";
-            } else {
-                res.innerText = "Gelişim Seviyesi İdeal";
-                res.className = "mt-4 p-4 rounded-xl text-center font-bold bg-green-100 text-green-600";
-            }
+        // White Noise Simülatörü
+        function playNoise(soundName) {
+            document.querySelectorAll('.white-noise-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            document.getElementById('current-sound').innerText = soundName;
+            // Gerçek ses dosyası çalma komutu: new Audio('sound.mp3').play();
         }
 
-        // Sleep Logic
-        function calcSleep() {
-            const time = document.getElementById('sleep_time').value;
-            const res = document.getElementById('sleep_res');
-            if(!time) return alert("Uyanma saatini seçin");
-            
-            res.classList.remove('hidden');
-            res.innerText = "Bir sonraki uyku penceresi: 2.5 saat sonra.";
+        // Diş Bilgi Simülatörü
+        function toothInfo(name, date) {
+            const detail = document.getElementById('tooth-detail');
+            detail.classList.remove('hidden');
+            detail.innerHTML = `🦷 ${name} <br> <span class="text-xs font-normal">Beklenen: ${date}</span>`;
         }
+
+        // Ek Gıda Filtreleme Simülatörü
+        function filterFood(month) {
+            alert(month + " ay ve sonrası için uygun besinler listeleniyor...");
+        }
+
+        // Tarih Güncelleme
+        document.getElementById('date-display').innerText = new Date().toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' }).toUpperCase();
     </script>
+
 </body>
 </html>
