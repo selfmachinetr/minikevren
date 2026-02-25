@@ -3,175 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minik Evren | Profesyonel Bebek Gelişim Portalı</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Minik Evren | Bebeğinizin Gelişim Yolculuğu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --coral: #FF7A8A; --bg: #FFFBFB; }
-        body { font-family: 'Comfortaa', cursive; background-color: var(--bg); color: #1E293B; }
-        h1, h2, h3, .logo-font { font-family: 'Baloo 2', cursive; line-height: 1.1; }
+        :root { --main-blue: #0076B6; --light-blue: #F0F9FF; --coral: #FF7A8A; }
+        body { font-family: 'Comfortaa', cursive; background-color: #FFFFFF; color: #334155; }
+        h1, h2, h3, .brand { font-family: 'Baloo 2', cursive; color: var(--main-blue); }
         
         .page { display: none; }
-        .active-page { display: block; animation: fadeIn 0.5s ease; }
+        .active-page { display: block; animation: fadeIn 0.4s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .bento-card { background: white; border-radius: 40px; border: 1px solid #F1F5F9; transition: all 0.3s ease; overflow: hidden; }
-        .bento-card:hover { transform: translateY(-8px); shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05); }
+        /* ilkadimlarim.com Tarzı Temiz Kartlar */
+        .content-card { 
+            background: #FFFFFF; 
+            border-radius: 20px; 
+            border: 1px solid #E2E8F0; 
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .content-card:hover { transform: translateY(-5px); border-color: var(--main-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
-        .btn-premium { background: linear-gradient(135deg, #FF7A8A 0%, #FF5F6D 100%); color: white; border-radius: 50px; box-shadow: 0 10px 25px rgba(255, 122, 138, 0.3); }
-        .locked-overlay { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); }
+        .nav-sticky { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #F1F5F9; }
+        
+        .btn-primary { background-color: var(--main-blue); color: white; border-radius: 30px; transition: all 0.2s; }
+        .btn-primary:hover { background-color: #005a8c; box-shadow: 0 4px 12px rgba(0,118,182,0.2); }
+        
+        .premium-stripe { background: linear-gradient(90deg, #FF7A8A 0%, #FF94A1 100%); }
     </style>
 </head>
 <body>
 
-    <nav class="fixed top-0 w-full z-[100] bg-white/90 backdrop-blur-md border-b border-pink-50 py-5 px-8">
+    <nav class="fixed top-0 w-full z-50 nav-sticky py-4 px-8">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div onclick="showPage('landing')" class="logo-font text-3xl font-black text-[#FF7A8A] cursor-pointer italic tracking-tighter uppercase">Minik Evren</div>
-            <div class="flex items-center gap-8">
-                <div class="hidden md:flex gap-8 font-bold text-slate-500 text-sm">
-                    <a href="javascript:void(0)" onclick="showPage('landing')" class="hover:text-coral transition">Keşfet</a>
-                    <a href="#" class="hover:text-coral transition">Uzman Makaleleri</a>
-                    <a href="#fiyatlandirma" class="hover:text-coral transition">Premium</a>
-                </div>
-                <button onclick="showPage('dashboard')" class="btn-premium px-8 py-3 font-extrabold text-sm uppercase italic tracking-widest">Dashboard</button>
+            <div onclick="showPage('landing')" class="brand text-3xl font-extrabold cursor-pointer tracking-tight uppercase">Minik Evren</div>
+            
+            <div class="hidden lg:flex gap-10 font-bold text-slate-600 text-sm">
+                <a href="javascript:void(0)" onclick="showPage('landing')" class="hover:text-blue-600">ANNE</a>
+                <a href="#" class="hover:text-blue-600">BEBEK</a>
+                <a href="#" class="hover:text-blue-600">BESLENME</a>
+                <a href="#" class="hover:text-blue-600">AKADEMİ</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button onclick="showPage('dashboard')" class="border-2 border-blue-600 text-blue-600 px-6 py-2 rounded-full font-bold text-sm uppercase">Üye Paneli</button>
             </div>
         </div>
     </nav>
 
-    <main id="landing" class="page active-page pt-32">
-        <section class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-                <span class="bg-pink-100 text-coral px-4 py-1 rounded-full font-black text-xs uppercase mb-6 tracking-widest italic">Bilimsel Temelli Ebeveynlik</span>
-                <h1 class="text-6xl md:text-8xl font-black text-slate-900 mt-4 uppercase italic tracking-tighter">Bilinçli Büyüyen <br><span class="text-coral">Bir Gelecek.</span></h1>
-                <p class="mt-8 text-xl text-slate-500 max-w-xl font-medium leading-relaxed italic">Bebeğinizin 0-36 aylık gelişim yolculuğunda; pediatrist onaylı içerikler, kişiselleştirilmiş analizler ve Yapay Zeka desteği ile yanınızdayız.</p>
-                <div class="mt-12 flex gap-4">
-                    <button onclick="showPage('dashboard')" class="btn-premium px-12 py-5 text-xl font-black uppercase italic">Hemen Keşfet</button>
+    <main id="landing" class="page active-page pt-28">
+        
+        <section class="bg-[#F8FBFF] py-16 px-6">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight mb-6">
+                        Bebeğinizin Gelişim Yolculuğunda <br> Yanınızdayız
+                    </h1>
+                    <p class="text-lg text-slate-500 mb-8 max-w-lg leading-relaxed">
+                        0-36 ay arası bebek gelişimi, beslenme rehberi ve uzman görüşleri ile her adımda profesyonel destek alın.
+                    </p>
+                    <div class="flex gap-4">
+                        <button onclick="showPage('dashboard')" class="btn-primary px-10 py-4 font-bold text-lg">Hemen Keşfedin</button>
+                    </div>
                 </div>
-            </div>
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1544126592-807daa2b565b?auto=format&fit=crop&w=1000&q=80" alt="Bebek" class="rounded-[60px] shadow-2xl">
-                <div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-[40px] shadow-xl border border-pink-50">
-                    <p class="text-coral font-black text-3xl italic tracking-tighter">15k+</p>
-                    <p class="text-slate-400 font-bold text-xs uppercase">Mutlu Anne & Baba</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-3 gap-10">
-            <div class="bento-card">
-                <img src="https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover">
-                <div class="p-8">
-                    <h3 class="text-2xl font-black mb-3 italic uppercase text-xs tracking-widest">Persentil Analizi</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed italic">WHO standartlarında boy, kilo ve baş çevresi takibi. Bebeğinizin büyüme eğrisini uzman grafiklerle izleyin.</p>
-                </div>
-            </div>
-            <div class="bento-card">
-                <img src="https://images.unsplash.com/photo-1602491950787-0331070267f5?auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover">
-                <div class="p-8">
-                    <h3 class="text-2xl font-black mb-3 italic uppercase text-xs tracking-widest">Beslenme Rehberi</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed italic">Aydan aya ek gıda geçiş listeleri, alerji risk tabloları ve BLW yöntemine uygun uzman yemek tarifleri.</p>
-                </div>
-            </div>
-            <div class="bento-card">
-                <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover">
-                <div class="p-8">
-                    <h3 class="text-2xl font-black mb-3 italic uppercase text-xs tracking-widest">Uyku Eğitimi</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed italic">Uyanıklık süreleri ve uyku pencereleri takibi. Bebeğinizin biyolojik saatine en uygun uyku rutinini oluşturun.</p>
+                <div class="order-1 lg:order-2">
+                    <img src="https://images.unsplash.com/photo-1510218830377-1e93b5b09b71?auto=format&fit=crop&w=800&q=80" 
+                         alt="Mutlu Bebek" class="rounded-[40px] shadow-2xl border-8 border-white">
                 </div>
             </div>
         </section>
 
-        <section id="fiyatlandirma" class="max-w-5xl mx-auto px-6 py-24 mb-20 bg-white rounded-[60px] shadow-sm border border-slate-50">
+        <section class="max-w-7xl mx-auto px-6 py-24">
             <div class="text-center mb-16">
-                <h2 class="text-5xl font-black text-slate-900 italic uppercase tracking-tighter">Premium Deneyim</h2>
-                <p class="text-slate-400 font-bold mt-4 uppercase text-xs tracking-widest">Daha bilinçli ebeveynlik için ihtiyacınız olan her şey</p>
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tighter uppercase italic">Size Nasıl Yardımcı Olabiliriz?</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
             </div>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="p-10 border-2 border-slate-50 rounded-[40px] flex flex-col justify-between">
-                    <div>
-                        <h4 class="text-2xl font-bold mb-6 italic uppercase text-xs">Standart Üyelik</h4>
-                        <p class="text-4xl font-black mb-8 italic">0 TL</p>
-                        <ul class="space-y-4 text-slate-500 font-medium text-sm">
-                            <li class="flex items-center gap-2">✓ Sınırlı Gelişim Takvimi</li>
-                            <li class="flex items-center gap-2">✓ Temel Aşı Hatırlatıcı</li>
-                            <li class="opacity-30">✗ Yapay Zeka Danışmanı</li>
-                            <li class="opacity-30">✗ Detaylı Sağlık Analizleri</li>
-                        </ul>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1544126592-807daa2b565b?auto=format&fit=crop&w=400&q=80" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Ay Ay Bebek Gelişimi</h3>
+                        <p class="text-slate-500 text-sm italic">Bebeğinizin fiziksel ve zihinsel gelişimini haftalık olarak takip edin.</p>
                     </div>
-                    <button class="w-full mt-10 py-4 rounded-full border-2 border-slate-100 font-black text-slate-300 uppercase italic">Ücretsiz Başla</button>
                 </div>
-                <div class="p-10 border-4 border-coral rounded-[40px] bg-pink-50/20 relative flex flex-col justify-between">
-                    <span class="absolute -top-5 left-1/2 -translate-x-1/2 bg-coral text-white px-6 py-2 rounded-full font-black text-xs uppercase italic tracking-widest">En Çok Tercih Edilen</span>
-                    <div>
-                        <h4 class="text-2xl font-bold mb-6 italic uppercase text-xs">Premium Paket</h4>
-                        <p class="text-4xl font-black mb-8 italic">150 TL <span class="text-xs opacity-50 uppercase tracking-normal">/ ay</span></p>
-                        <ul class="space-y-4 text-slate-800 font-bold text-sm italic">
-                            <li class="flex items-center gap-2 text-coral">✓ Sınırsız Yapay Zeka Mentor</li>
-                            <li class="flex items-center gap-2">✓ Tüm Beyaz Gürültü Kütüphanesi</li>
-                            <li class="flex items-center gap-2">✓ Detaylı Gelişim Grafikleri</li>
-                            <li class="flex items-center gap-2">✓ Kişiselleştirilmiş Sağlık Bildirimleri</li>
-                        </ul>
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?auto=format&fit=crop&w=400&q=80" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Beslenme & Ek Gıda</h3>
+                        <p class="text-slate-500 text-sm italic">Pediatrist onaylı tarifler ve alerji dostu ek gıda tabloları.</p>
                     </div>
-                    <button onclick="openPayment()" class="w-full mt-10 btn-premium py-5 text-xl font-black uppercase italic">Satın Al ✨</button>
+                </div>
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=400&q=80" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Uyku Düzeni</h3>
+                        <p class="text-slate-500 text-sm italic">Biyolojik saate uygun uyku pencereleri ve rutin oluşturma rehberi.</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1502781252888-9143ba7f074e?auto=format&fit=crop&w=400&q=80" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Akıllı Hesaplamalar</h3>
+                        <p class="text-slate-500 text-sm italic">Boy, kilo, baş çevresi ve aşı takvimi için interaktif araçlar.</p>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <section id="fiyat" class="py-24 bg-slate-50 px-6">
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+                <div class="bg-white p-12 rounded-[30px] border shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-2xl font-bold mb-4">Ücretsiz Üyelik</h4>
+                        <p class="text-slate-400 mb-8 font-medium">Temel takip araçlarına ve makalelere erişim sağlayın.</p>
+                        <ul class="space-y-4 text-sm font-bold text-slate-500 uppercase tracking-widest italic">
+                            <li>✓ Haftalık Gelişim Bülteni</li>
+                            <li>✓ Aşı Hatırlatıcı</li>
+                        </ul>
+                    </div>
+                    <button onclick="showPage('dashboard')" class="w-full mt-10 py-4 border-2 border-slate-200 rounded-full font-bold">ÜCRETSİZ BAŞLA</button>
+                </div>
+                <div class="bg-white p-12 rounded-[30px] border-4 border-blue-600 shadow-xl relative flex flex-col justify-between">
+                    <span class="absolute -top-5 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full font-black text-xs">PREMIUM DENEYİM</span>
+                    <div>
+                        <h4 class="text-2xl font-bold mb-4">Minik Evren Premium</h4>
+                        <p class="text-4xl font-black mb-8 italic">150 TL <span class="text-sm font-normal">/ ay</span></p>
+                        <ul class="space-y-4 text-sm font-bold text-slate-800 uppercase tracking-widest italic">
+                            <li>✓ Sınırsız AI Mentor Asistanı</li>
+                            <li>✓ Tüm Beyaz Gürültü Kütüphanesi</li>
+                            <li>✓ Detaylı Gelişim Grafikleri</li>
+                            <li>✓ Kişiye Özel Sağlık Raporları</li>
+                        </ul>
+                    </div>
+                    <button onclick="openPayment()" class="w-full mt-10 btn-primary py-4 font-bold text-lg">HEMEN SATIN AL</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-16 text-center border-t">
+            <div class="brand text-2xl font-extrabold mb-4 uppercase tracking-tighter italic">Minik Evren</div>
+            <p class="text-slate-400 text-xs italic uppercase tracking-widest">© 2026 Tüm Hakları Saklıdır.</p>
+        </footer>
     </main>
 
-    <main id="dashboard" class="page pt-32 pb-20 bg-gray-50/30">
-        <div class="max-w-7xl mx-auto px-6">
+    <main id="dashboard" class="page pt-28 pb-20 bg-gray-50/50 min-h-screen px-6">
+        <div class="max-w-7xl mx-auto">
             <header class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                 <div>
-                    <h2 class="text-4xl font-black text-slate-900 italic uppercase tracking-tighter">Aras'ın Paneli</h2>
-                    <p class="text-slate-400 font-bold mt-2 uppercase text-xs tracking-widest">Bebek <b>7 Ay 12 Günlük</b> | Gelişim Seviyesi: %84</p>
+                    <h2 class="text-4xl font-black text-blue-600 uppercase italic tracking-tighter">Panelim</h2>
+                    <p class="text-slate-400 font-bold uppercase text-xs mt-2 italic">Hoş Geldiniz Mete | Bebek: <b>7 Ay 12 Günlük</b></p>
                 </div>
                 <div class="flex gap-4">
-                    <button class="bg-white border p-3 rounded-2xl shadow-sm">🔔</button>
-                    <button onclick="showPage('landing')" class="bg-white border px-6 py-3 rounded-2xl font-bold text-sm uppercase italic">Çıkış Yap</button>
+                    <button onclick="showPage('landing')" class="bg-white border px-6 py-3 rounded-full font-bold text-sm uppercase italic">Çıkış</button>
                 </div>
             </header>
 
             <div class="grid lg:grid-cols-3 gap-8">
                 <div class="lg:col-span-2 space-y-8">
-                    <div class="bento-card p-10 flex flex-col md:flex-row items-center gap-10">
-                        <img src="https://images.unsplash.com/photo-1544126592-807daa2b565b?auto=format&fit=crop&w=400&q=80" class="w-40 h-40 rounded-[40px] object-cover border-4 border-pink-100 shadow-xl">
+                    <div class="bg-white p-10 rounded-[30px] border shadow-sm flex flex-col md:flex-row items-center gap-10">
+                        <img src="https://images.unsplash.com/photo-1544126592-807daa2b565b?auto=format&fit=crop&w=400&q=80" class="w-48 h-48 rounded-[30px] object-cover border-4 border-blue-50 shadow-lg">
                         <div class="flex-1">
-                            <h3 class="text-2xl font-black mb-4 italic uppercase text-xs tracking-widest text-coral">Haftalık Bülten</h3>
-                            <p class="text-slate-600 font-medium italic leading-relaxed">Bebeğiniz bu hafta ilk hecelerini (ba-ba, ma-ma) bilinçsizce söylemeye başlayabilir! Duyusal oyunlar için yumuşak dokulu kitaplar tam sırası.</p>
+                            <span class="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest italic">Haftalık Bülten</span>
+                            <h3 class="text-2xl font-bold mt-4 mb-4 uppercase italic tracking-tighter">Bu Haftaki Gelişim Özeti</h3>
+                            <p class="text-slate-500 font-medium italic leading-relaxed">Aras artık desteksiz oturma denemeleri yapabilir. Çevresindeki seslere olan merakı arttı. Onu bol bol sesli hikayelerle tanıştırın!</p>
                             <div class="flex gap-4 mt-6">
-                                <div class="bg-slate-50 px-4 py-2 rounded-xl text-[10px] font-bold text-slate-500 uppercase">Kilo: 8.4kg</div>
-                                <div class="bg-slate-50 px-4 py-2 rounded-xl text-[10px] font-bold text-slate-500 uppercase">Boy: 71cm</div>
+                                <span class="bg-slate-50 border px-4 py-2 rounded-xl text-[10px] font-bold">KİLO: 8.4KG</span>
+                                <span class="bg-slate-50 border px-4 py-2 rounded-xl text-[10px] font-bold">BOY: 71CM</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="relative bento-card p-10 bg-slate-900 text-white overflow-hidden min-h-[300px] flex items-center justify-center">
-                        <div class="absolute inset-0 opacity-20">
-                            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                    <div class="relative bg-slate-900 rounded-[30px] p-12 text-white overflow-hidden text-center min-h-[300px] flex flex-col justify-center">
+                        <div class="absolute inset-0 opacity-30">
+                            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1000&q=80" class="w-full h-full object-cover">
                         </div>
-                        <div class="relative z-10 text-center">
-                            <h4 class="text-2xl font-black mb-4 uppercase italic tracking-tighter">Yapay Zeka Destekli Sağlık Analizi</h4>
-                            <p class="text-slate-400 text-sm mb-8 font-medium italic">Beslenme ve uyku verilerinizi girin, AI Mentor size özel rapor hazırlasın.</p>
-                            <button onclick="openPayment()" class="btn-premium px-10 py-4 font-black uppercase text-xs italic tracking-widest">Kilidi Aç</button>
+                        <div class="relative z-10">
+                            <h4 class="text-3xl font-black mb-4 uppercase italic tracking-tighter">Yapay Zeka Destekli Sağlık Analizi</h4>
+                            <p class="text-slate-400 font-medium mb-8 max-w-md mx-auto italic">Beslenme verilerinizi girerek AI Mentor'dan kişiselleştirilmiş raporlar alın.</p>
+                            <button onclick="openPayment()" class="btn-primary px-10 py-4 font-bold uppercase text-xs tracking-widest">KİLİDİ AÇ</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="space-y-8 text-xs italic">
-                    <div class="bento-card p-8">
-                        <h4 class="font-black mb-6 uppercase tracking-widest text-slate-400 italic">Uyku Player</h4>
-                        <div class="space-y-4 font-bold uppercase italic">
-                            <button class="w-full p-4 bg-slate-50 rounded-2xl flex justify-between items-center hover:bg-pink-50 transition">Fön Sesi 💨 <span class="text-[10px] bg-white px-2 py-1 rounded">Seç</span></button>
-                            <button class="w-full p-4 bg-slate-50 rounded-2xl flex justify-between items-center hover:bg-pink-50 transition">Anne Karnı 💓 <span class="text-[10px] bg-white px-2 py-1 rounded">Seç</span></button>
-                            <button class="w-full p-4 bg-slate-50 rounded-2xl flex justify-between items-center hover:bg-pink-50 transition">Yağmur Sesi 🌧️ <span class="text-[10px] bg-white px-2 py-1 rounded">Seç</span></button>
+                <div class="space-y-8">
+                    <div class="bg-white p-8 rounded-[30px] border shadow-sm">
+                        <h4 class="font-black mb-6 uppercase tracking-widest text-xs italic text-blue-600">Uyku Player</h4>
+                        <div class="space-y-3 uppercase font-bold text-[11px] italic">
+                            <button class="w-full p-4 bg-slate-50 rounded-2xl flex justify-between hover:bg-blue-50 transition border">Fön Sesi <span class="text-blue-600">Başlat</span></button>
+                            <button class="w-full p-4 bg-slate-50 rounded-2xl flex justify-between hover:bg-blue-50 transition border">Anne Karnı <span class="text-blue-600">Başlat</span></button>
+                            <button class="w-full p-4 bg-slate-50 rounded-2xl flex justify-between hover:bg-blue-50 transition border">Beyaz Gürültü <span class="text-blue-600">Başlat</span></button>
                         </div>
                     </div>
-                    <div class="bento-card p-8">
-                        <h4 class="font-black mb-6 uppercase tracking-widest text-slate-400 italic">Alışveriş Listesi</h4>
-                        <div class="space-y-3 font-bold text-slate-600">
-                            <label class="flex items-center gap-3"><input type="checkbox" checked class="w-4 h-4 accent-coral"> Bebek Bezi</label>
-                            <label class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4 accent-coral"> Diş Kaşıyıcı</label>
-                            <label class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4 accent-coral"> Organik Püre</label>
+                    <div class="bg-white p-8 rounded-[30px] border shadow-sm">
+                        <h4 class="font-black mb-6 uppercase tracking-widest text-xs italic text-blue-600">Alışveriş Listesi</h4>
+                        <div class="space-y-3 font-bold text-slate-600 text-sm italic">
+                            <label class="flex items-center gap-3"><input type="checkbox" checked class="w-4 h-4 accent-blue-600"> Bebek Bezi (4 Numara)</label>
+                            <label class="flex items-center gap-3"><input type="checkbox" class="w-4 h-4 accent-blue-600"> Diş Kaşıyıcı (Soğutmalı)</label>
                         </div>
                     </div>
                 </div>
@@ -179,19 +208,19 @@
         </div>
     </main>
 
-    <div id="payment" class="fixed inset-0 z-[200] hidden flex items-center justify-center p-4">
+    <div id="payment" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
         <div onclick="closePayment()" class="absolute inset-0 bg-slate-900/40 backdrop-blur-md"></div>
-        <div class="relative bg-white w-full max-w-md rounded-[50px] shadow-2xl p-10 border-4 border-white">
-            <h3 class="text-3xl font-black text-center italic mb-2 uppercase tracking-tighter">Premium ✨</h3>
-            <p class="text-center text-coral font-bold mb-8 uppercase italic tracking-widest">Aylık 150 TL</p>
-            <div class="space-y-4 italic font-bold text-xs tracking-widest">
-                <input type="text" placeholder="KART ÜZERİNDEKİ AD" class="w-full p-4 bg-slate-50 rounded-2xl outline-none focus:border-coral uppercase">
-                <input type="text" placeholder="KART NUMARASI" class="w-full p-4 bg-slate-50 rounded-2xl outline-none focus:border-coral uppercase">
+        <div class="relative bg-white w-full max-w-md rounded-[40px] shadow-2xl p-10 border-4 border-white animate-pop">
+            <h3 class="text-3xl font-black text-center italic mb-2 uppercase italic tracking-tighter text-blue-600">Premium ✨</h3>
+            <p class="text-center text-slate-400 font-bold mb-8 uppercase italic tracking-widest text-xs">Aylık 150 TL</p>
+            <div class="space-y-4 italic font-bold text-[11px] tracking-widest">
+                <input type="text" placeholder="AD SOYAD" class="w-full p-4 bg-slate-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-blue-600 uppercase">
+                <input type="text" placeholder="KART NUMARASI" class="w-full p-4 bg-slate-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-blue-600 uppercase">
                 <div class="grid grid-cols-2 gap-4">
-                    <input type="text" placeholder="AA/YY" class="w-full p-4 bg-slate-50 rounded-2xl outline-none text-center focus:border-coral uppercase">
-                    <input type="text" placeholder="CVC" class="w-full p-4 bg-slate-50 rounded-2xl outline-none text-center focus:border-coral uppercase">
+                    <input type="text" placeholder="AA/YY" class="w-full p-4 bg-slate-50 rounded-2xl border-none outline-none text-center focus:ring-2 focus:ring-blue-600 uppercase">
+                    <input type="text" placeholder="CVC" class="w-full p-4 bg-slate-50 rounded-2xl border-none outline-none text-center focus:ring-2 focus:ring-blue-600 uppercase">
                 </div>
-                <button onclick="alert('Premium Aktif Edildi!')" class="w-full btn-premium py-5 text-xl font-black mt-4 uppercase italic">Onayla</button>
+                <button onclick="alert('Premium Aktif!')" class="w-full btn-primary py-5 text-xl font-bold mt-4 uppercase italic">Onayla ve Başlat</button>
             </div>
         </div>
     </div>
