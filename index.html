@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Minik Evren</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:Nunito, sans-serif;
+  background:#FFF9F2;
+  color:#2A2A2A;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.nav{
+  display:flex;
+  gap:20px;
+  font-size:14px;
+}
+
+.hero{
+  text-align:center;
+  padding:60px 20px;
+}
+
+.button{
+  margin-top:20px;
+  padding:12px 26px;
+  border-radius:20px;
+  background:#6ED3B1;
+  color:white;
+  border:none;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.grid{
+  display:grid;
+  gap:20px;
+}
+
+.age-grid{
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+}
+
+.article-grid{
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  padding:24px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+
+.badge{
+  display:inline-block;
+  background:#FFD66B;
+  padding:4px 10px;
+  border-radius:12px;
+  font-size:12px;
+  margin-bottom:8px;
+}
+
+.footer{
+  margin-top:60px;
+  padding:40px;
+  background:white;
+  text-align:center;
+  border-top:1px solid #eee;
+}
+
+@media(max-width:700px){
+  .nav{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<header class="container header">
+  <svg width="200" viewBox="0 0 420 120">
+    <text x="10" y="70" font-family="Baloo 2" font-size="48" fill="#FFB7C5">Minik</text>
+    <text x="150" y="70" font-family="Baloo 2" font-size="48" fill="#6ED3B1">Evren</text>
+    <ellipse cx="185" cy="50" rx="38" ry="14" fill="none" stroke="#FFD66B" stroke-width="4"/>
+    <circle cx="300" cy="25" r="4" fill="#FFD66B"/>
+    <circle cx="320" cy="45" r="3" fill="#FFD66B"/>
+    <circle cx="280" cy="40" r="2.5" fill="#FFD66B"/>
+  </svg>
+
+  <nav class="nav">
+    <span>Yaş Dönemleri</span>
+    <span>Uyku</span>
+    <span>Beslenme</span>
+    <span>Ürünler</span>
+    <span>Topluluk</span>
+  </nav>
+</header>
+
+<section class="hero container">
+  <h1>Minik Evren’e hoş geldiniz ✨</h1>
+  <p>Bebeğinizin büyüme yolculuğunda eğlenceli rehberiniz</p>
+  <button class="button">Yaşa Göre Keşfet</button>
+</section>
+
+<section class="container">
+  <h2>Yaş Dönemleri</h2>
+  <div class="grid age-grid">
+    <div class="card"><h3>0–3 Ay</h3><p>Minik başlangıç dönemi</p></div>
+    <div class="card"><h3>3–6 Ay</h3><p>Keşif zamanı</p></div>
+    <div class="card"><h3>6–12 Ay</h3><p>Hareketli evre</p></div>
+    <div class="card"><h3>1–2 Yaş</h3><p>İlk adımlar</p></div>
+  </div>
+</section>
+
+<section class="container">
+  <h2>Son İçerikler</h2>
+  <div class="grid article-grid">
+    <div class="card">
+      <span class="badge">Gelişim</span>
+      <h3>Bebeğiniz neden gazlı?</h3>
+      <p>5 kolay çözüm</p>
+    </div>
+
+    <div class="card">
+      <span class="badge">Gelişim</span>
+      <h3>6 aylık bebek gelişimi</h3>
+      <p>Bu ay neler olur?</p>
+    </div>
+
+    <div class="card">
+      <span class="badge">Beslenme</span>
+      <h3>Ek gıdaya başlama</h3>
+      <p>Adım adım rehber</p>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <h2>Anne Favorileri ⭐</h2>
+  <div class="grid article-grid">
+    <div class="card">
+      <span class="badge">Anne Favorisi</span>
+      <h3>Bebek ürünü</h3>
+      <p>Annelerin en sevdiği ürün</p>
+      <button class="button">İncele</button>
+    </div>
+
+    <div class="card">
+      <span class="badge">Anne Favorisi</span>
+      <h3>Bebek ürünü</h3>
+      <p>Güvenli ve doğal</p>
+      <button class="button">İncele</button>
+    </div>
+
+    <div class="card">
+      <span class="badge">Anne Favorisi</span>
+      <h3>Bebek ürünü</h3>
+      <p>En çok önerilen</p>
+      <button class="button">İncele</button>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <h2>Anneler Minik Evren’de konuşuyor 💬</h2>
+  <div class="grid article-grid">
+    <div class="card"><h3>Gaz sancısı nasıl geçti?</h3><p>Deneyimleri oku</p></div>
+    <div class="card"><h3>Uyku düzeni önerileri</h3><p>Annelerden tavsiye</p></div>
+    <div class="card"><h3>Ek gıda tarifleri</h3><p>Topluluk paylaşımları</p></div>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2026 Minik Evren
+</footer>
+
+</body>
+</html>
