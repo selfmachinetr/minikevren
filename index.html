@@ -1,173 +1,82 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minik Evren ✨ | Mutlu Bebekler, Bilinçli Ebeveynler</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Comfortaa:wght@300;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root {
-            --soft-pink: #FFEDF2;
-            --baby-blue: #E0F2FE;
-            --sunny-yellow: #FEF9C3;
-            --mint-green: #F0FDF4;
-            --main-coral: #FF7A8A;
-        }
-        
-        body { 
-            font-family: 'Comfortaa', cursive; 
-            background-color: #FFF9F9;
-        }
-        
-        h1, h2, h3, .logo { 
-            font-family: 'Baloo 2', cursive; 
-        }
+<div id="payment-modal" class="fixed inset-0 z-[200] hidden flex items-center justify-center p-4">
+    <div onclick="closePayment()" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+    
+    <div class="relative bg-white w-full max-w-md rounded-[40px] shadow-2xl overflow-hidden border-4 border-white animate-pop">
+        <div class="bg-indigo-600 p-8 text-white text-center">
+            <h3 class="text-2xl font-black mb-2 uppercase italic tracking-tighter">Premium'a Geç ✨</h3>
+            <p class="text-indigo-100 text-sm">Sınırsız AI Danışman ve tüm araçlar için</p>
+            <div class="mt-4 text-4xl font-black">150 TL <span class="text-xs opacity-70">/ ay</span></div>
+        </div>
 
-        .bubble-bg {
-            background-image: radial-gradient(#FFD1D1 1px, transparent 1px), radial-gradient(#D1E9FF 1px, transparent 1px);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px;
-        }
-
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .soft-card {
-            border-radius: 40px;
-            border: 4px solid white;
-            box-shadow: 0 15px 35px rgba(255, 122, 138, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .soft-card:hover {
-            transform: scale(1.03) rotate(1deg);
-        }
-
-        .btn-playful {
-            background-color: var(--main-coral);
-            border-radius: 50px;
-            box-shadow: 0 10px 0 #E66372;
-            transition: all 0.1s;
-        }
-
-        .btn-playful:active {
-            transform: translateY(5px);
-            box-shadow: 0 5px 0 #E66372;
-        }
-    </style>
-</head>
-<body class="bubble-bg">
-
-    <nav class="p-6 sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b-4 border-pink-100">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="logo text-4xl font-extrabold text-[#FF7A8A] flex items-center gap-2">
-                <span class="text-5xl">🍭</span> Minik Evren
+        <div class="p-8 space-y-4">
+            <div>
+                <label class="block text-xs font-black text-slate-400 uppercase mb-2 ml-1">Kart Sahibi</label>
+                <input type="text" placeholder="Ad Soyad" class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl outline-none focus:border-indigo-400 transition">
             </div>
             
-            <div class="hidden lg:flex gap-8 text-lg font-bold text-slate-600">
-                <a href="#" class="hover:text-pink-500 transition">Gelişim Takvimi</a>
-                <a href="#" class="hover:text-pink-500 transition">Uyku Sesleri</a>
-                <a href="#" class="hover:text-pink-500 transition">İsim Rehberi</a>
+            <div>
+                <label class="block text-xs font-black text-slate-400 uppercase mb-2 ml-1">Kart Numarası</label>
+                <input type="text" placeholder="**** **** **** ****" class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl outline-none focus:border-indigo-400 transition">
             </div>
 
-            <button onclick="togglePanel()" class="btn-playful text-white px-8 py-3 font-extrabold text-lg flex items-center gap-2">
-                📂 Panelim <span class="bg-white/20 rounded-full px-2 text-sm">2</span>
-            </button>
-        </div>
-    </nav>
-
-    <main id="main-view" class="pt-10 pb-20">
-        <section class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
-            <div class="text-left">
-                <span class="bg-yellow-200 text-yellow-800 px-6 py-2 rounded-full font-black text-sm uppercase tracking-widest">Hoş Geldin Mete Anne/Baba!</span>
-                <h1 class="text-6xl md:text-8xl font-extrabold text-slate-800 mt-6 leading-tight">
-                    Bebeğinin <br><span class="text-[#FF7A8A]">Dünyası</span> Şenlensin!
-                </h1>
-                <p class="mt-6 text-xl text-slate-600 font-medium">
-                    Türkiye'nin en neşeli ebeveynlik platformunda; gelişim takibi, aşı hatırlatıcıları ve cıvıl cıvıl içerikler seni bekliyor.
-                </p>
-                <div class="mt-12">
-                    <button class="btn-playful text-white px-12 py-5 font-black text-2xl hover:scale-105 transition">Şimdi Keşfet! 🎈</button>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-black text-slate-400 uppercase mb-2 ml-1">SKT</label>
+                    <input type="text" placeholder="AA/YY" class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl outline-none focus:border-indigo-400 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-black text-slate-400 uppercase mb-2 ml-1">CVC</label>
+                    <input type="text" placeholder="***" class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl outline-none focus:border-indigo-400 transition">
                 </div>
             </div>
-            <div class="relative flex justify-center">
-                <div class="w-[450px] h-[450px] bg-pink-100 rounded-full absolute -z-10 animate-pulse"></div>
-                <img src="https://illustrations.popsy.co/pink/baby-with-a-pacifier.svg" alt="Bebek İllüstrasyonu" class="w-full floating">
-            </div>
-        </section>
 
-        <section class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-4 gap-8">
-            <div class="soft-card bg-white p-10 text-center border-b-[12px] border-blue-400">
-                <div class="text-6xl mb-4">🌈</div>
-                <h3 class="text-2xl font-black mb-2 text-blue-600 uppercase">Gelişim</h3>
-                <p class="text-sm font-medium text-slate-500">Bebeğinin her milimetresini takip et!</p>
-            </div>
-            <div class="soft-card bg-white p-10 text-center border-b-[12px] border-yellow-400">
-                <div class="text-6xl mb-4">⭐</div>
-                <h3 class="text-2xl font-black mb-2 text-yellow-600 uppercase">Uyku</h3>
-                <p class="text-sm font-medium text-slate-500">Mışıl mışıl uyutan beyaz gürültüler.</p>
-            </div>
-            <div class="soft-card bg-white p-10 text-center border-b-[12px] border-green-400">
-                <div class="text-6xl mb-4">🍏</div>
-                <h3 class="text-2xl font-black mb-2 text-green-600 uppercase">Beslenme</h3>
-                <p class="text-sm font-medium text-slate-500">Lezzetli ve sağlıklı ek gıda tarifleri.</p>
-            </div>
-            <div class="soft-card bg-white p-10 text-center border-b-[12px] border-purple-400">
-                <div class="text-6xl mb-4">🧸</div>
-                <h3 class="text-2xl font-black mb-2 text-purple-600 uppercase">Albüm</h3>
-                <p class="text-sm font-medium text-slate-500">En tatlı anıları tek bir yerde topla.</p>
-            </div>
-        </section>
-    </main>
-
-    <div id="side-panel" class="fixed inset-y-0 right-0 w-full md:w-[500px] bg-white shadow-2xl z-[100] transform translate-x-full transition-transform duration-500 overflow-y-auto border-l-8 border-pink-200">
-        <div class="p-10">
-            <div class="flex justify-between items-center mb-10">
-                <h2 class="text-4xl font-black text-slate-800">Mete'nin Paneli 🍭</h2>
-                <button onclick="togglePanel()" class="text-4xl hover:rotate-90 transition">❌</button>
+            <div class="pt-4">
+                <button onclick="processPayment()" class="w-full bg-[#FF7A8A] text-white py-5 rounded-full font-black text-xl shadow-xl shadow-pink-100 hover:scale-[1.02] active:scale-95 transition">
+                    ÖDEMEYİ TAMAMLA 🚀
+                </button>
             </div>
 
-            <div class="space-y-6">
-                <div class="bg-blue-50 p-6 rounded-[30px] border-2 border-blue-100">
-                    <p class="font-bold text-blue-800 text-sm italic">Günün İpucu:</p>
-                    <p class="text-blue-900 mt-2 font-medium">Bebeğin bu hafta diş çıkarıyor olabilir, soğuk meyve fileleri onu rahatlatacaktır! 🦷</p>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4 text-center">
-                    <div class="bg-pink-50 p-6 rounded-[30px] border-2 border-pink-100">
-                        <span class="text-4xl block mb-2">⚖️</span>
-                        <p class="font-black text-pink-700">8.2 KG</p>
-                        <p class="text-xs font-bold text-pink-400">Ağırlık</p>
-                    </div>
-                    <div class="bg-yellow-50 p-6 rounded-[30px] border-2 border-yellow-100">
-                        <span class="text-4xl block mb-2">📏</span>
-                        <p class="font-black text-yellow-700">68 CM</p>
-                        <p class="text-xs font-bold text-yellow-400">Boy</p>
-                    </div>
-                </div>
-
-                <div class="bg-slate-50 p-8 rounded-[40px] border-2 border-dashed border-slate-200">
-                    <h4 class="font-black text-xl mb-4 text-slate-800">✨ AI Danışmana Sor</h4>
-                    <textarea class="w-full p-4 rounded-2xl border-none shadow-inner text-sm outline-none focus:ring-4 focus:ring-pink-100" rows="3" placeholder="Bebeğim neden ağlıyor?"></textarea>
-                    <button class="w-full mt-4 btn-playful text-white py-3 font-bold uppercase tracking-wider">Hemen Yanıtla</button>
-                </div>
+            <div class="flex items-center justify-center gap-2 text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-4">
+                <span>🔒 256-BIT SSL GÜVENLİ ÖDEME</span>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        function togglePanel() {
-            const panel = document.getElementById('side-panel');
-            panel.classList.toggle('translate-x-full');
-        }
-    </script>
-</body>
-</html>
+<style>
+    @keyframes pop {
+        0% { transform: scale(0.9); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop { animation: pop 0.3s cubic-bezier(0.17, 0.89, 0.32, 1.49); }
+</style>
+
+<script>
+    // Ödeme ekranını açma fonksiyonu
+    function openPayment() {
+        document.getElementById('payment-modal').classList.remove('hidden');
+    }
+
+    // Ödeme ekranını kapatma fonksiyonu
+    function closePayment() {
+        document.getElementById('payment-modal').classList.add('hidden');
+    }
+
+    // Ödeme işlemi simülasyonu
+    function processPayment() {
+        const btn = event.target;
+        btn.innerText = "İŞLENİYOR... ⏳";
+        btn.disabled = true;
+        
+        setTimeout(() => {
+            alert("Harika! Ödemen başarıyla alındı. Artık Minik Evren Premium ailesindesin! ✨🍭");
+            closePayment();
+            btn.innerText = "ÖDEMEYİ TAMAMLA 🚀";
+            btn.disabled = false;
+            // Burada gerçek bir senaryoda kullanıcıyı Premium dashboard'a yönlendirirsin.
+        }, 2000);
+    }
+
+    // Mevcut "PREMIUM'A GEÇ" butonlarına openPayment() fonksiyonunu bağlamayı unutma!
+    // Örnek: <button onclick="openPayment()" ...>
+</script>
