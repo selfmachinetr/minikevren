@@ -3,153 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minik Evren | Ebeveynlik Portalı</title>
+    <title>Minik Evren ✨ | Mutlu Bebekler, Bilinçli Ebeveynler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Comfortaa:wght@300;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; overflow-x: hidden; }
-        .page { display: none; transition: opacity 0.3s ease; }
-        .page-active { display: block; opacity: 1; }
-        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
-        .card { background: white; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
+        :root {
+            --soft-pink: #FFEDF2;
+            --baby-blue: #E0F2FE;
+            --sunny-yellow: #FEF9C3;
+            --mint-green: #F0FDF4;
+            --main-coral: #FF7A8A;
+        }
+        
+        body { 
+            font-family: 'Comfortaa', cursive; 
+            background-color: #FFF9F9;
+        }
+        
+        h1, h2, h3, .logo { 
+            font-family: 'Baloo 2', cursive; 
+        }
+
+        .bubble-bg {
+            background-image: radial-gradient(#FFD1D1 1px, transparent 1px), radial-gradient(#D1E9FF 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .soft-card {
+            border-radius: 40px;
+            border: 4px solid white;
+            box-shadow: 0 15px 35px rgba(255, 122, 138, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .soft-card:hover {
+            transform: scale(1.03) rotate(1deg);
+        }
+
+        .btn-playful {
+            background-color: var(--main-coral);
+            border-radius: 50px;
+            box-shadow: 0 10px 0 #E66372;
+            transition: all 0.1s;
+        }
+
+        .btn-playful:active {
+            transform: translateY(5px);
+            box-shadow: 0 5px 0 #E66372;
+        }
     </style>
 </head>
-<body>
+<body class="bubble-bg">
 
-    <nav class="fixed top-0 w-full z-[100] glass-nav border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div onclick="showPage('landing')" class="text-2xl font-black text-indigo-600 cursor-pointer tracking-tighter uppercase italic">✨ Minik Evren</div>
-            
-            <div class="flex items-center gap-6">
-                <div class="hidden md:flex gap-8 font-bold text-slate-500 text-sm">
-                    <a href="javascript:void(0)" onclick="showPage('landing')" class="hover:text-indigo-600">Keşfet</a>
-                    <a href="#" class="hover:text-indigo-600">Makaleler</a>
-                    <a href="#" class="hover:text-indigo-600">Topluluk</a>
-                </div>
-                <button onclick="showPage('dashboard')" class="flex items-center gap-3 bg-white border border-slate-200 p-1.5 pr-4 rounded-full hover:shadow-md transition">
-                    <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold">M</div>
-                    <span class="text-sm font-bold text-slate-700 uppercase">Panelim</span>
-                </button>
+    <nav class="p-6 sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b-4 border-pink-100">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="logo text-4xl font-extrabold text-[#FF7A8A] flex items-center gap-2">
+                <span class="text-5xl">🍭</span> Minik Evren
             </div>
+            
+            <div class="hidden lg:flex gap-8 text-lg font-bold text-slate-600">
+                <a href="#" class="hover:text-pink-500 transition">Gelişim Takvimi</a>
+                <a href="#" class="hover:text-pink-500 transition">Uyku Sesleri</a>
+                <a href="#" class="hover:text-pink-500 transition">İsim Rehberi</a>
+            </div>
+
+            <button onclick="togglePanel()" class="btn-playful text-white px-8 py-3 font-extrabold text-lg flex items-center gap-2">
+                📂 Panelim <span class="bg-white/20 rounded-full px-2 text-sm">2</span>
+            </button>
         </div>
     </nav>
 
-    <main id="landing" class="page page-active pt-32">
-        <section class="max-w-7xl mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1]">
-                Bebeğinizin Gelişimini <br><span class="text-indigo-600 italic">Yapay Zeka</span> ile Takip Edin.
-            </h1>
-            <p class="mt-8 text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                Minik Evren, aşı takviminden uyku asistanına kadar ihtiyacınız olan her şeyi tek bir dijital evrende toplar.
-            </p>
-            <div class="mt-12 flex justify-center gap-4">
-                <button onclick="showPage('dashboard')" class="bg-indigo-600 text-white px-10 py-5 rounded-2xl font-black text-lg shadow-2xl shadow-indigo-200 hover:scale-105 transition">Hemen Ücretsiz Başla</button>
-                <button class="bg-white border border-slate-200 px-10 py-5 rounded-2xl font-black text-lg">Özellikleri Gör</button>
+    <main id="main-view" class="pt-10 pb-20">
+        <section class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
+            <div class="text-left">
+                <span class="bg-yellow-200 text-yellow-800 px-6 py-2 rounded-full font-black text-sm uppercase tracking-widest">Hoş Geldin Mete Anne/Baba!</span>
+                <h1 class="text-6xl md:text-8xl font-extrabold text-slate-800 mt-6 leading-tight">
+                    Bebeğinin <br><span class="text-[#FF7A8A]">Dünyası</span> Şenlensin!
+                </h1>
+                <p class="mt-6 text-xl text-slate-600 font-medium">
+                    Türkiye'nin en neşeli ebeveynlik platformunda; gelişim takibi, aşı hatırlatıcıları ve cıvıl cıvıl içerikler seni bekliyor.
+                </p>
+                <div class="mt-12">
+                    <button class="btn-playful text-white px-12 py-5 font-black text-2xl hover:scale-105 transition">Şimdi Keşfet! 🎈</button>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <div class="w-[450px] h-[450px] bg-pink-100 rounded-full absolute -z-10 animate-pulse"></div>
+                <img src="https://illustrations.popsy.co/pink/baby-with-a-pacifier.svg" alt="Bebek İllüstrasyonu" class="w-full floating">
             </div>
         </section>
 
-        <section class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-3 gap-8">
-            <div class="card p-8 hover:border-indigo-200 transition">
-                <div class="text-4xl mb-4">🩺</div>
-                <h3 class="text-xl font-bold mb-2">Akıllı Aşı Takvimi</h3>
-                <p class="text-slate-500 text-sm">Bebeğinizin aşı günlerini asla unutmayın, bildirimlerle hatırlatalım.</p>
+        <section class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-4 gap-8">
+            <div class="soft-card bg-white p-10 text-center border-b-[12px] border-blue-400">
+                <div class="text-6xl mb-4">🌈</div>
+                <h3 class="text-2xl font-black mb-2 text-blue-600 uppercase">Gelişim</h3>
+                <p class="text-sm font-medium text-slate-500">Bebeğinin her milimetresini takip et!</p>
             </div>
-            <div class="card p-8 hover:border-indigo-200 transition">
-                <div class="text-4xl mb-4">🌙</div>
-                <h3 class="text-xl font-bold mb-2">Uyku Dostu</h3>
-                <p class="text-slate-500 text-sm">Beyaz gürültü ve uyku penceresi hesaplayıcı ile huzurlu geceler.</p>
+            <div class="soft-card bg-white p-10 text-center border-b-[12px] border-yellow-400">
+                <div class="text-6xl mb-4">⭐</div>
+                <h3 class="text-2xl font-black mb-2 text-yellow-600 uppercase">Uyku</h3>
+                <p class="text-sm font-medium text-slate-500">Mışıl mışıl uyutan beyaz gürültüler.</p>
             </div>
-            <div class="card p-8 hover:border-indigo-200 transition">
-                <div class="text-4xl mb-4">🥗</div>
-                <h3 class="text-xl font-bold mb-2">Ek Gıda Rehberi</h3>
-                <p class="text-slate-500 text-sm">Ay ay beslenme tabloları ve alerji risk yönetimi parmaklarınızın ucunda.</p>
+            <div class="soft-card bg-white p-10 text-center border-b-[12px] border-green-400">
+                <div class="text-6xl mb-4">🍏</div>
+                <h3 class="text-2xl font-black mb-2 text-green-600 uppercase">Beslenme</h3>
+                <p class="text-sm font-medium text-slate-500">Lezzetli ve sağlıklı ek gıda tarifleri.</p>
+            </div>
+            <div class="soft-card bg-white p-10 text-center border-b-[12px] border-purple-400">
+                <div class="text-6xl mb-4">🧸</div>
+                <h3 class="text-2xl font-black mb-2 text-purple-600 uppercase">Albüm</h3>
+                <p class="text-sm font-medium text-slate-500">En tatlı anıları tek bir yerde topla.</p>
             </div>
         </section>
     </main>
 
-    <main id="dashboard" class="page pt-32 pb-20 bg-[#fbfcfd]">
-        <div class="max-w-7xl mx-auto px-6">
-            
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                <div>
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider italic text-xs">Aktif Takip</span>
-                        <h2 class="text-3xl font-black text-slate-900 uppercase italic tracking-tighter text-4xl">Mete'nin Evreni</h2>
-                    </div>
-                    <p class="text-slate-400 font-medium">Bebek şu an <b>7 ay 12 günlük</b> | Son güncelleme: Bugün 11:39</p>
-                </div>
-                <div class="flex gap-2">
-                    <button class="bg-white border border-slate-200 px-4 py-2 rounded-xl text-sm font-bold text-slate-600">Verileri İndir</button>
-                    <button class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-lg shadow-indigo-100">Kayıt Ekle +</button>
-                </div>
+    <div id="side-panel" class="fixed inset-y-0 right-0 w-full md:w-[500px] bg-white shadow-2xl z-[100] transform translate-x-full transition-transform duration-500 overflow-y-auto border-l-8 border-pink-200">
+        <div class="p-10">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-4xl font-black text-slate-800">Mete'nin Paneli 🍭</h2>
+                <button onclick="togglePanel()" class="text-4xl hover:rotate-90 transition">❌</button>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8">
-                
-                <div class="lg:col-span-2 space-y-8">
-                    <div class="card p-8 bg-indigo-600 text-white relative overflow-hidden">
-                        <div class="relative z-10">
-                            <h3 class="text-xl font-bold mb-4">Bu Haftaki Gelişim Notu 📝</h3>
-                            <p class="opacity-90 leading-relaxed text-lg">
-                                Bebeğiniz artık objelere uzanırken iki elini de aktif kullanıyor. Sosyal etkileşimde "Taklit" dönemi başlıyor. Ona bol bol kitap okuyun!
-                            </p>
-                        </div>
-                        <div class="absolute right-[-20px] bottom-[-20px] text-9xl opacity-10">👶</div>
-                    </div>
+            <div class="space-y-6">
+                <div class="bg-blue-50 p-6 rounded-[30px] border-2 border-blue-100">
+                    <p class="font-bold text-blue-800 text-sm italic">Günün İpucu:</p>
+                    <p class="text-blue-900 mt-2 font-medium">Bebeğin bu hafta diş çıkarıyor olabilir, soğuk meyve fileleri onu rahatlatacaktır! 🦷</p>
+                </div>
 
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="card p-6">
-                            <h4 class="font-bold mb-4 text-slate-800 flex items-center gap-2">🌙 Uyku Çalar</h4>
-                            <div class="grid grid-cols-2 gap-3 text-center">
-                                <button onclick="alert('Fön sesi başladı')" class="p-3 bg-slate-50 rounded-xl text-xs font-bold hover:bg-indigo-50 transition border border-transparent hover:border-indigo-200 uppercase">💨 Fön</button>
-                                <button onclick="alert('Yağmur sesi başladı')" class="p-3 bg-slate-50 rounded-xl text-xs font-bold hover:bg-indigo-50 transition border border-transparent hover:border-indigo-200 uppercase">🌧️ Yağmur</button>
-                            </div>
-                        </div>
-                        <div class="card p-6">
-                            <h4 class="font-bold mb-4 text-slate-800 flex items-center gap-2">🦷 Diş Takibi</h4>
-                            <div class="flex justify-between items-center bg-orange-50 p-3 rounded-xl">
-                                <span class="text-xs font-bold text-orange-700 uppercase">Sıradaki: Üst Ön Diş</span>
-                                <span class="text-[10px] bg-white px-2 py-1 rounded text-orange-400 font-bold">~2 Hafta</span>
-                            </div>
-                        </div>
+                <div class="grid grid-cols-2 gap-4 text-center">
+                    <div class="bg-pink-50 p-6 rounded-[30px] border-2 border-pink-100">
+                        <span class="text-4xl block mb-2">⚖️</span>
+                        <p class="font-black text-pink-700">8.2 KG</p>
+                        <p class="text-xs font-bold text-pink-400">Ağırlık</p>
+                    </div>
+                    <div class="bg-yellow-50 p-6 rounded-[30px] border-2 border-yellow-100">
+                        <span class="text-4xl block mb-2">📏</span>
+                        <p class="font-black text-yellow-700">68 CM</p>
+                        <p class="text-xs font-bold text-yellow-400">Boy</p>
                     </div>
                 </div>
 
-                <div class="space-y-8">
-                    <div class="card p-6 border-2 border-indigo-100 bg-indigo-50/30">
-                        <h4 class="font-bold text-indigo-900 mb-4 flex items-center gap-2 italic uppercase tracking-tighter text-xl text-xs">✨ AI Mentor</h4>
-                        <div class="space-y-4">
-                            <input type="text" placeholder="Bebeğim neden az yiyor?" class="w-full p-4 rounded-2xl border-none shadow-sm text-sm outline-none focus:ring-2 focus:ring-indigo-400">
-                            <button class="w-full bg-slate-900 text-white py-3 rounded-2xl font-bold text-sm">ANALİZ ET</button>
-                        </div>
-                    </div>
-
-                    <div class="card p-6">
-                        <h4 class="font-bold text-slate-800 mb-4 uppercase text-xs tracking-widest italic border-b pb-2">🛒 Alışveriş</h4>
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-3 text-sm font-medium text-slate-600">
-                                <input type="checkbox" class="w-4 h-4 rounded accent-indigo-600"> Pişik Kremi
-                            </li>
-                            <li class="flex items-center gap-3 text-sm font-medium text-slate-600">
-                                <input type="checkbox" class="w-4 h-4 rounded accent-indigo-600"> Biberon Başlığı
-                            </li>
-                        </ul>
-                    </div>
+                <div class="bg-slate-50 p-8 rounded-[40px] border-2 border-dashed border-slate-200">
+                    <h4 class="font-black text-xl mb-4 text-slate-800">✨ AI Danışmana Sor</h4>
+                    <textarea class="w-full p-4 rounded-2xl border-none shadow-inner text-sm outline-none focus:ring-4 focus:ring-pink-100" rows="3" placeholder="Bebeğim neden ağlıyor?"></textarea>
+                    <button class="w-full mt-4 btn-playful text-white py-3 font-bold uppercase tracking-wider">Hemen Yanıtla</button>
                 </div>
-
             </div>
         </div>
-    </main>
+    </div>
 
     <script>
-        // Sayfa Değiştirme Fonksiyonu
-        function showPage(pageId) {
-            // Tüm sayfaları gizle
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('page-active'));
-            // İstenen sayfayı göster
-            document.getElementById(pageId).classList.add('page-active');
-            // Sayfa başına kaydır
-            window.scrollTo(0, 0);
+        function togglePanel() {
+            const panel = document.getElementById('side-panel');
+            panel.classList.toggle('translate-x-full');
         }
     </script>
 </body>
