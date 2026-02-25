@@ -1,0 +1,8 @@
+
+<svg width="200" height="60" viewBox="0 0 300 90" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="55" font-family="Fredoka" font-size="42" fill="#FF8FB1">Minik</text>
+  <text x="120" y="55" font-family="Fredoka" font-size="42" fill="#6ED3B1">Evren</text>
+  <circle cx="170" cy="28" r="12" fill="none" stroke="#FFD66B" stroke-width="3"/>
+  <circle cx="220" cy="18" r="3" fill="#FFD66B"/>
+  <circle cx="235" cy="35" r="2.5" fill="#FFD66B"/>
+</svg>
