@@ -1,182 +1,75 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minik Evren | Profesyonel Gelişim Portalı</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root { --brand-blue: #0076B6; --soft-bg: #F8FBFF; --coral: #FF7A8A; }
-        body { font-family: 'Comfortaa', cursive; background-color: #FFFFFF; color: #334155; scroll-behavior: smooth; }
-        h1, h2, h3, .brand-font { font-family: 'Baloo 2', cursive; color: var(--brand-blue); }
-        
-        .page { display: none; }
-        .active-page { display: block; animation: fadeIn 0.4s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .feature-card { background: white; border-radius: 16px; border: 1px solid #E5E7EB; transition: 0.3s; overflow: hidden; }
-        .feature-card:hover { border-color: var(--brand-blue); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-
-        .btn-brand { background: var(--brand-blue); color: white; border-radius: 50px; font-weight: 700; transition: 0.2s; }
-        .btn-brand:hover { background: #005a8c; transform: translateY(-2px); }
-
-        /* Grafik Animasyonu */
-        .chart-bar { transition: height 1s ease-in-out; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minik Evren | Anne & Bebek Gelişim Rehberi</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b py-4 px-8">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div onclick="showPage('landing')" class="brand-font text-3xl font-black cursor-pointer uppercase tracking-tight italic">Minik Evren</div>
-            
-            <div class="hidden lg:flex gap-10 font-bold text-gray-500 text-sm">
-                <a href="javascript:void(0)" onclick="showPage('landing')" class="hover:text-blue-600">KEŞFET</a>
-                <a href="javascript:void(0)" onclick="showPage('dashboard')" class="hover:text-blue-600 uppercase">Panelim</a>
-            </div>
-
-            <div class="flex items-center gap-4">
-                <button id="nav-auth-btn" onclick="showPage('login')" class="border-2 border-blue-600 text-blue-600 px-6 py-2 rounded-full font-bold text-xs uppercase italic tracking-widest">Giriş Yap</button>
-            </div>
-        </div>
-    </nav>
-
-    <main id="landing" class="page active-page pt-24">
-        <section class="bg-[#F4FAFF] py-24 px-6">
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h1 class="text-6xl lg:text-7xl font-extrabold mb-8 leading-tight italic">Bebeğinle <br> Güvenle Büyü.</h1>
-                    <p class="text-xl text-gray-500 mb-10 max-w-lg leading-relaxed font-medium">Uzman onaylı takip araçları, aşı takvimi ve kişiselleştirilmiş gelişim raporları tek bir profesyonel panelde.</p>
-                    <button onclick="showPage('login')" class="btn-brand px-12 py-5 text-xl uppercase italic shadow-xl">Hemen Üye Ol</button>
-                </div>
-                <div class="relative">
-                    <img src="https://picsum.photos/id/1066/800/600" alt="Bebek" class="rounded-[40px] shadow-2xl border-8 border-white">
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <main id="login" class="page pt-40 pb-20 bg-gray-50 min-h-screen">
-        <div class="max-w-md mx-auto bg-white p-10 rounded-[30px] shadow-2xl border">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-black text-blue-600 italic uppercase">Hoş Geldiniz</h2>
-                <p class="text-gray-400 text-sm mt-2 font-bold italic uppercase tracking-widest">Hesabınıza Giriş Yapın</p>
-            </div>
-            <form onsubmit="handleLogin(event)" class="space-y-6">
-                <div>
-                    <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">E-Posta Adresi</label>
-                    <input type="email" required placeholder="ornek@mail.com" class="w-full p-4 bg-gray-50 border rounded-2xl outline-none focus:ring-2 focus:ring-blue-600 transition font-bold text-xs">
-                </div>
-                <div>
-                    <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Şifre</label>
-                    <input type="password" required placeholder="••••••••" class="w-full p-4 bg-gray-50 border rounded-2xl outline-none focus:ring-2 focus:ring-blue-600 transition font-bold text-xs">
-                </div>
-                <button type="submit" class="w-full btn-brand py-4 text-sm uppercase italic tracking-widest shadow-lg">Giriş Yap 🚀</button>
-            </form>
-        </div>
-    </main>
-
-    <main id="dashboard" class="page pt-24 bg-[#F9FBFF] min-h-screen">
-        <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-10">
-            
-            <aside class="lg:w-64 space-y-3">
-                <div class="bg-white p-8 rounded-3xl border shadow-sm text-center mb-6">
-                    <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-blue-100 p-1">
-                    <h4 class="font-bold text-blue-800 italic uppercase">Mete'nin Paneli</h4>
-                    <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-1">7 Ay 12 Günlük</p>
-                </div>
-                <nav class="space-y-1 font-bold text-[11px] italic text-gray-500 uppercase tracking-widest">
-                    <a href="javascript:void(0)" class="block p-4 rounded-xl text-blue-600 bg-blue-50">📋 GENEL BAKIŞ</a>
-                    <a href="javascript:void(0)" class="block p-4 rounded-xl hover:bg-white transition">📊 BÜYÜME GRAFİĞİ</a>
-                    <a href="javascript:void(0)" class="block p-4 rounded-xl hover:bg-white transition">🩺 AŞI TAKVİMİ</a>
-                    <a href="javascript:void(0)" class="block p-4 rounded-xl text-amber-600 hover:bg-white transition">✨ AI MENTOR</a>
-                </nav>
-            </aside>
-
-            <div class="flex-1 space-y-8">
-                
-                <div class="feature-card p-8 bg-white">
-                    <h3 class="text-xl font-bold mb-6 italic uppercase text-blue-600 tracking-tighter">Büyüme Takibi (Kilo)</h3>
-                    <div class="flex items-end gap-4 h-48 border-b border-l p-4">
-                        <div class="flex-1 bg-blue-100 rounded-t-lg chart-bar" style="height: 40%"></div>
-                        <div class="flex-1 bg-blue-200 rounded-t-lg chart-bar" style="height: 55%"></div>
-                        <div class="flex-1 bg-blue-300 rounded-t-lg chart-bar" style="height: 65%"></div>
-                        <div class="flex-1 bg-blue-400 rounded-t-lg chart-bar" style="height: 75%"></div>
-                        <div class="flex-1 bg-blue-600 rounded-t-lg chart-bar" style="height: 85%"></div>
-                    </div>
-                    <div class="flex justify-between mt-4 text-[10px] font-bold text-gray-400 uppercase">
-                        <span>3. Ay</span><span>4. Ay</span><span>5. Ay</span><span>6. Ay</span><span>7. Ay</span>
-                    </div>
-                </div>
-
-                <div class="feature-card p-8 bg-white">
-                    <h3 class="text-xl font-bold mb-6 italic uppercase text-blue-600 tracking-tighter">Aşı Takvimi</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between p-4 bg-green-50 rounded-2xl border border-green-100">
-                            <span class="text-xs font-black text-green-700 uppercase italic">Hepatit B (2. Doz)</span>
-                            <span class="text-[10px] font-bold bg-white text-green-500 px-3 py-1 rounded-full uppercase">TAMAMLANDI</span>
-                        </div>
-                        <div class="flex items-center justify-between p-4 bg-orange-50 rounded-2xl border border-orange-100">
-                            <span class="text-xs font-black text-orange-700 uppercase italic">Kızamık & KKK</span>
-                            <span class="text-[10px] font-bold bg-white text-orange-500 px-3 py-1 rounded-full uppercase italic">BEKLENİYOR</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative feature-card p-12 bg-slate-900 text-white text-center min-h-[250px] flex flex-col justify-center">
-                    <div class="absolute inset-0 opacity-20 bg-center bg-cover" style="background-image: url('https://picsum.photos/id/338/800/600')"></div>
-                    <div class="relative z-10">
-                        <h4 class="text-2xl font-black mb-4 uppercase italic tracking-tighter text-blue-400">Yapay Zeka Mentor</h4>
-                        <p class="text-[10px] text-gray-400 mb-6 font-bold uppercase tracking-widest italic">Yalnızca Premium Üyelere Özel</p>
-                        <button onclick="openPayment()" class="bg-blue-600 px-10 py-4 rounded-full font-bold text-xs uppercase italic tracking-widest">KİLİDİ AÇ (150 TL)</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </main>
-
-    <div id="payment" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
-        <div onclick="closePayment()" class="absolute inset-0 bg-slate-900/40 backdrop-blur-md"></div>
-        <div class="relative bg-white w-full max-w-md rounded-[40px] shadow-2xl p-10 border-4 border-white animate-pop">
-            <h3 class="text-3xl font-black text-center italic mb-2 uppercase tracking-tighter text-blue-600 italic">Ödeme</h3>
-            <p class="text-center text-gray-400 font-bold mb-8 uppercase italic tracking-widest text-[10px]">Premium Aktivasyon - 150 TL</p>
-            <div class="space-y-4 font-bold text-[10px] tracking-widest italic uppercase">
-                <input type="text" placeholder="AD SOYAD" class="w-full p-4 bg-gray-50 rounded-xl border-none outline-none focus:ring-2 focus:ring-blue-600">
-                <input type="text" placeholder="KART NUMARASI" class="w-full p-4 bg-gray-50 rounded-xl border-none outline-none focus:ring-2 focus:ring-blue-600">
-                <div class="grid grid-cols-2 gap-4">
-                    <input type="text" placeholder="AA/YY" class="w-full p-4 bg-gray-50 rounded-xl border-none outline-none text-center focus:ring-2 focus:ring-blue-600">
-                    <input type="text" placeholder="CVC" class="w-full p-4 bg-gray-50 rounded-xl border-none outline-none text-center focus:ring-2 focus:ring-blue-600">
-                </div>
-                <button onclick="alert('Premium Aktif Edildi!')" class="w-full bg-blue-600 text-white py-5 rounded-full font-bold text-sm uppercase italic mt-4">İşlemi Tamamla</button>
-            </div>
-        </div>
+  <header class="hero">
+    <div class="container">
+      <h1 class="logo">Minik Evren</h1>
+      <nav class="navbar">
+        <a href="#">Anasayfa</a>
+        <a href="#">Bebek Gelişimi</a>
+        <a href="#">Anne Köşesi</a>
+        <a href="#">Makale</a>
+        <a href="#">Forum</a>
+        <a href="#">Hakkımızda</a>
+      </nav>
+      <div class="hero-content">
+        <h2>Anne ve Bebek Gelişiminde Güvenilir Kaynağınız</h2>
+        <p>Hamilelikten bebekliğe, büyümenin her anında yanınızdayız!</p>
+        <a href="#" class="cta-btn">Hemen Keşfet</a>
+      </div>
     </div>
+  </header>
 
-    <script>
-        function showPage(id) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
-            document.getElementById(id).classList.add('active-page');
-            window.scrollTo(0, 0);
-            
-            const authBtn = document.getElementById('nav-auth-btn');
-            if(id === 'dashboard') {
-                authBtn.innerText = "ÇIKIŞ YAP";
-                authBtn.onclick = () => showPage('landing');
-            } else {
-                authBtn.innerText = "GİRİŞ YAP";
-                authBtn.onclick = () => showPage('login');
-            }
-        }
+  <section class="features">
+    <div class="container flex">
+      <div class="feature-card">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80" alt="Bebek Gelişimi">
+        <h3>Bebek Gelişimi</h3>
+        <p>Ay ay bebek gelişim rehberi, beslenme, uyku ve oyun önerileri.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=400&q=80" alt="Anne Rehberi">
+        <h3>Anne Rehberi</h3>
+        <p>Anneler için bakım, psikoloji ve sağlıklı yaşam tavsiyeleri.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Forum">
+        <h3>Forum</h3>
+        <p>Diğer ebeveynlerle tecrübe paylaşımı ve destek alın.</p>
+      </div>
+    </div>
+  </section>
 
-        function handleLogin(e) {
-            e.preventDefault();
-            showPage('dashboard');
-        }
+  <section class="about">
+    <div class="container flex about-content">
+      <img class="about-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Anne ve Bebek">
+      <div>
+        <h2>Hakkımızda</h2>
+        <p>
+          Minik Evren, sağlıklı ve bilinçli ebeveynlik yolculuğunuzda yanınızda olmak için kuruldu.
+          Güvenilir kaynaklar ve gerçek deneyimlerle, annelere ve babalara destek oluyoruz.
+        </p>
+        <a href="#" class="cta-btn cta-small">Daha Fazlası</a>
+      </div>
+    </div>
+  </section>
 
-        function openPayment() { document.getElementById('payment').classList.remove('hidden'); }
-        function closePayment() { document.getElementById('payment').classList.add('hidden'); }
-    </script>
+  <footer>
+    <div class="container footer-content">
+      <span>&copy; 2026 Minik Evren. Tüm hakları saklıdır.</span>
+      <nav>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">İletişim</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>
